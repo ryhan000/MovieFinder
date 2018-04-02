@@ -1,13 +1,13 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes , RouterModule } from '@angular/router';
 
-import { SearchComponent } from './search/search.component';
+import { MoviesComponent } from './movies/movies.component';
 import { AboutComponent } from './about/about.component';
 
 const appRoutes=[
     {
       path:'',
-      component:SearchComponent
+      component:MoviesComponent
     },
     {
       path:'about',

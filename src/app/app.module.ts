@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpModule, JsonpModule} from '@angular/http';
+import {FormsModule} from '@Angular/forms'
 
 
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SearchComponent } from './search/search.component';
+import { MoviesComponent } from './movies/movies.component';
 import { AboutComponent } from './about/about.component';
 import { routing} from './app.routing';
 
@@ -15,12 +17,15 @@ import { routing} from './app.routing';
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchComponent,
+    MoviesComponent,
     AboutComponent,
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    FormsModule,
+    HttpModule,
+    JsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
