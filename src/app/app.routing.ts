@@ -3,6 +3,8 @@ import { Routes , RouterModule } from '@angular/router';
 
 import { MoviesComponent } from './movies/movies.component';
 import { AboutComponent } from './about/about.component';
+import { MovieComponent } from './movie/movie.component';
+
 
 const appRoutes=[
     {
@@ -12,6 +14,10 @@ const appRoutes=[
     {
       path:'about',
       component:AboutComponent 
+    },
+    {
+      path:'movie/:id',
+      component:MovieComponent 
     }
   
   ];

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MoviesComponent } from './movies/movies.component';
 import { AboutComponent } from './about/about.component';
+import { MovieComponent } from './movie/movie.component';
 import { routing} from './app.routing';
 
 
@@ -19,6 +20,7 @@ import { routing} from './app.routing';
     NavbarComponent,
     MoviesComponent,
     AboutComponent,
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
