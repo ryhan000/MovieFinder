@@ -31,14 +31,17 @@ export class MovieService{
             .map(res => res.json());
     }
 
-    getMovieCredits(id: string) {
-        var search = new URLSearchParams();
-        search.set('api_key', this.apikey);
-        return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/credits?callback=JSONP_CALLBACK', {search})
-          .map(res => {
-            return res.json();
-          })
-      }
+    getMovieCredits(id:string){
+        return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/credits?callback=JSONP_CALLBACK&api_key='+this.apikey)
+            .map(res => res.json());
+    }
+
+    getMovieVideos(id: string){
+        return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/videos?callback=JSONP_CALLBACK&api_key='+this.apikey)
+            .map(res => res.json());
+    }
+   
+      
 
 
 }
