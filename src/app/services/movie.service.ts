@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Jsonp} from '@angular/http';
+import {Jsonp,URLSearchParams} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -30,6 +30,15 @@ export class MovieService{
         return this._jsonp.get('https://api.themoviedb.org/3/movie/'+id+'?callback=JSONP_CALLBACK&api_key='+this.apikey)
             .map(res => res.json());
     }
+
+    getMovieCredits(id: string) {
+        var search = new URLSearchParams();
+        search.set('api_key', this.apikey);
+        return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/credits?callback=JSONP_CALLBACK', {search})
+          .map(res => {
+            return res.json();
+          })
+      }
 
 
 }

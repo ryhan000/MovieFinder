@@ -1,22 +1,36 @@
-<div *ngIf="movie">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{movie.title}}</h3>    
-        </div> 
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-5">
-                    <img class="thumbnail" style="max-height:350px;" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
-                </div>    
-                <div class="col-md-7">
-                    <ul class="list-group">
-                        <li class="list-group-item">Genres: <span *ngFor="let genre of movie.genres">{{genre.name}}</span></li>    
-                        <li class="list-group-item">Release Date: {{movie.release_date}}</li>
-                    </ul>
-                    <br>
-                    <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-default">Visit Movie Website</a>
-                </div>  
+<div class="row" *ngIf="movie">
+        <div class="col-md-4">
+          <img  style="max-height:550px;" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
+          <p>
+            <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+          </p>
+        </div>
+        <div class="col-md-8">
+          <h2>{{movie.title}}
+            <small class="label label-warning">
+              {{movie.vote_average}}
+              <i class="glyphicon glyphicon-star"></i>
+            </small>
+          </h2>
+          <p>{{movie.tagline}}</p>
+          <a routerLink="" *ngFor="let genre of movie.genres" class="label label-info m-r-md">
+            {{genre.name}}
+          </a>
+          <h3>Overview</h3>
+          <p>
+            {{movie.overview}}
+          </p>
+          <div class="row is-flex" *ngIf="cast && cast.length > 0">
+              <div class="col-md-12">
+                <h3 class="text-center">Cast</h3>
+              </div>
+              <div class="col-md-3" *ngFor="let actor of cast">
+                <div class="thumbnail">
+                  <img src="https://image.tmdb.org/t/p/w500/{{actor.profile_path}}" alt="">
+                  <div class="caption">
+                    <h6 class="text-center"><a routerLink="/actor/{{actor.id}}">{{actor.name}}</a></h6>
+                  </div>
+                </div >
+              </div>
             </div>
-        </div> 
-    </div>    
-</div>
+      <!--Trailer-->

@@ -9,6 +9,7 @@ import {MovieService} from '../services/movie.service';
 })
 export class MovieComponent implements OnInit{
     movie: Object;
+    cast: Array<Object>;
     
     constructor(
         private router:ActivatedRoute, 
@@ -18,10 +19,23 @@ export class MovieComponent implements OnInit{
     
     ngOnInit(){
         this.router.params.subscribe((params) => {
-            let id = params['id'];
+            const id = params['id'];
             this._movieService.getMovie(id).subscribe(movie => {
                 this.movie = movie;
             });
         });
+
+        this.router.params.subscribe((params) => {
+            const id = params['id'];
+            this._movieService.getMovieCredits(id).subscribe(res => {
+
+                res.cast = res.cast.filter((item) => {
+                    return item.profile_path
+                });
+
+                this.cast = res.cast.slice(0,4);
+              });
+        });
+
     }
 }
