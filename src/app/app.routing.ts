@@ -12,10 +12,6 @@ const appRoutes=[
       component:MoviesComponent
     },
     {
-      path:'about',
-      component:AboutComponent 
-    },
-    {
       path:'movie/:id',
       component:MovieComponent 
     }
