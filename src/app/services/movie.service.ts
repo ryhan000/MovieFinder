@@ -40,8 +40,12 @@ export class MovieService{
         return this._jsonp.get('https://api.themoviedb.org/3/movie/'+ id +'/videos?callback=JSONP_CALLBACK&api_key='+this.apikey)
             .map(res => res.json());
     }
-   
-      
 
+    getTopRatedMovies(){
+        return this._jsonp.get('https://api.themoviedb.org/3/movie/top_rated?callback=JSONP_CALLBACK&api_key='+this.apikey)
+            .map(res => res.json());
+    }
+
+   
 
 }

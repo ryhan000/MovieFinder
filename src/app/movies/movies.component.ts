@@ -9,6 +9,7 @@ import {MovieService} from '../services/movie.service';
 export class MoviesComponent { 
     popularList:Array<Object>;
     theatersList:Array<Object>;
+    topRatedList:Array<Object>;
     searchStr:string;
     searchRes:Array<Object>;
     
@@ -20,6 +21,10 @@ export class MoviesComponent {
         this._movieService.getInTheaters().subscribe(res => {
             this.theatersList = res.results;
         });
+
+        this._movieService.getTopRatedMovies().subscribe(res => {
+            this.topRatedList = res.results;
+          });
     }
 
     searchMovies(){
